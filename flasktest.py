@@ -7,7 +7,7 @@ app.config['SECRET_KEY'] = 'wlwhfkdm203833yedndnddkj939733heneee'
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    return render_template('home.html', Title='Home')
 
 @app.route("/avail", methods=["GET", "POST"])
 def avail():
@@ -15,7 +15,7 @@ def avail():
     if form.validate_on_submit():
         flash(f'Thank you, {form.name.data} for submitting your availability!', 'success')
         return redirect(url_for('home'))
-    return render_template('avail.html', form=form)
+    return render_template('avail.html', Title='Availablility', form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)
