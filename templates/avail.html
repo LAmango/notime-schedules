@@ -4,8 +4,8 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="borber-top pt-4">Availability</legend>
-                <div class="form-group row border-top pt-3">
+                <legend class="border-top pt-4">Availability</legend>
+                <div class="form-group border-top pt-3">
                     {{ form.name(class="form-control col-sm-4") }}
                 </div>
                 <div class="form-check-inline pull-left">
@@ -40,7 +40,7 @@
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+                {{ form.submit(class="btn btn-primary") }}
             </div>
         </form>
     </div>
