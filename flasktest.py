@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from forms import WeekDayAvail, RegistrationForm
+from forms import WeekDayAvail, RegistrationForm, LoginForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'wlwhfkdm203833yedndnddkj939733heneee'
@@ -9,9 +9,13 @@ app.config['SECRET_KEY'] = 'wlwhfkdm203833yedndnddkj939733heneee'
 def home():
     return render_template('home.html', Title='Home')
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template('login.html', Title='Login')
+    login = LoginForm()
+    if login.validate_on_submit():
+        if login.email.data == "lucas@albano.us" and login.password.data == "password":
+            return redirect(url_for('home'))
+    return render_template('login.html', Title='Login', form=login)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():

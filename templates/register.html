@@ -1,10 +1,12 @@
 {% extends "main.html" %}
 {% block content %}
-    <div class="container">
+    <div class="container pt-4 col-lg-4">
+    <div class="card border-primary mb-3">
+        <div class="card-body">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            <fieldset class="form-group col-sm-4">
-                <legend class="border-bottom mb-4 border-top pt-4">Register</legend>
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Register</legend>
                 <div class="form-group">
                     {{ form.fullName.label(class="form-control-label") }}
                     {% if form.fullName.errors %}
@@ -68,9 +70,11 @@
                         <i class="fas fa-info-circle float-right pt-1"></i>
                     </div> 
             </fieldset>
-            <div class="form-group col">
+            <div class="form-group">
                 {{ form.submit(class="btn btn-primary") }}
             </div>
         </form>
+        </div>
+    </div>
     </div>
 {% endblock %}
